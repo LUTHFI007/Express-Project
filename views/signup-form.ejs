@@ -1,0 +1,46 @@
+<% title='signup' %>
+ <div class="container mt-5">
+  <h1>Signup</h1>
+  
+  <% if (message) { %>
+    <div class="error-message">
+      <ul>
+        <li style="color: red;"><%= message %></li>
+      </ul>
+    </div>
+  <% } %>
+  
+  <% if (error) { %>
+    <div class="error-message">
+      <ul>
+        <% Object.values(error).forEach(err => { %>
+          <li style="color: red;"><%= err.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+  
+  <form action="/signup" method="post">
+    <div class="form-group">
+      <label for="fname">First Name:</label>
+      <input type="text" class="form-control" id="fname" name="fname">
+    </div>
+    <div class="form-group">
+      <label for="lname">Last Name:</label>
+      <input type="text" class="form-control" id="lname" name="lname">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="password">Password:</label>
+      <input type="password" class="form-control" id="password" name="password">
+    </div>
+    <div class="form-group">
+      <label for="confirmPassword">Confirm Password:</label>
+      <input type="password" class="form-control" id="confirmPassword" name="confirmPassword">
+    </div>
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+</div>

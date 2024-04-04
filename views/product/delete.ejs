@@ -1,0 +1,14 @@
+<% title='Delete Confirmation' %>
+
+<h1>Delete Confirmation</h1>
+<p>Are you sure you want to delete the product below?</p>
+
+<p>Name: <%= product.name %></p>
+<p>Description: <%= product.description %></p>
+<p>Price: <%= product.price %></p>
+
+
+<form action="/products/delete_product/<%= product._id %>" method="post">
+    <button type="submit">Yes, Delete</button>
+    <a href="/products/retrieve_product">No, Cancel</a>
+</form>

@@ -1,0 +1,24 @@
+<% title='Update Medicine' %>
+
+<h1>Update Medicine</h1>
+
+<% if (error) { %>
+    <div style="color: red;">
+      <p>Error(s):</p>
+      <ul>
+        <% Object.values(error).forEach(err => { %>
+          <li><%= err.message %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% } %>
+ 
+<form action="/products/update_product/<%= product._id %>" method="post">
+  <label for="name">Name: </label>
+  <input type="text" id="name" name="name" value="<%= product.name %>"><br>
+  <label for="description">Description: </label>
+  <textarea id="description" name="description" ><%= product.description %></textarea><br>
+  <label for="price">Price: </label>
+  <input type="number" id="price" name="price" step="0.01"  value="<%= product.price %>"><br>
+  <input type="submit" value="Update Medicine">
+</form>

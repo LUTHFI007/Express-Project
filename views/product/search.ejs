@@ -1,0 +1,36 @@
+<% title='Medicines List' %>
+
+
+  <h1>Medicines List</h1>
+
+  <form action="/products/search_product" method="get">
+    <input type="text" name="q" placeholder="Search Medicine">
+    <button type="submit">Search</button>
+  </form>
+
+  <% if (products.length > 0) { %>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th colspan="2">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% products.forEach(product => { %>
+          <tr>
+            <td><%= product.name %></td>
+            <td><%= product.description %></td>
+            <td><%= product.price %></td>
+            <td><a href="update_product/<%= product._id %>" value="edit" type="submit">Edit</a></td>
+            <td><a href="delete_product/<%= product._id %>" value="delete" type="submit">Delete</a></td>
+          </tr>
+        <% }); %>
+      </tbody>
+    </table>
+  <% } else { %>
+    <p>No Medicine found.</p>
+  <% } %>
+
